@@ -1,6 +1,6 @@
 # Target specific variables
 TARGET := sc
-CFLAGS += -I. -Wall -Wextra -Werror -DWITH_LINENOISE
+CFLAGS += -D_GNU_SOURCE -I. -Wall -Wextra -Werror -DWITH_LINENOISE
 LDFLAGS += -lm
 
 ifndef OFLAGS

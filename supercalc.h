@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
 typedef struct SuperCalc SuperCalc;
 #include "value.h"
