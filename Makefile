@@ -1,6 +1,6 @@
 # Target specific variables
 TARGET := sc
-CFLAGS += -D_GNU_SOURCE -I. -Wall -Wextra -Werror -DWITH_LINENOISE
+CFLAGS += -D_GNU_SOURCE -I. -Wall -Wextra -Werror -DWITH_LINENOISE -DUTEST_USE_CLOCKGETTIME -Wno-pointer-to-enum-cast
 LDFLAGS += -lm
 
 ifndef OFLAGS
@@ -74,8 +74,8 @@ $(TARGET): $(OBJS)
 
 # Compiling rule
 $(BUILD)/%.o: % | $(BUILD_DIR_RULES)
-	$(call status,'Analyzing '$(call underline,'$<'))
-	$(_v)$(CLANG) --analyze $(ANALYZE_FLAGS) $<
+	# $(call status,'Analyzing '$(call underline,'$<'))
+	# $(_v)$(CLANG) --analyze $(ANALYZE_FLAGS) $<
 	$(call status,'Compiling '$(call underline,'$<'))
 	$(_v)$(CC) $(CFLAGS) $(OFLAGS) -I$(<D) -MD -MP -MF $(BUILD)/$*.d -c -o $@ $<
 

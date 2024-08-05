@@ -25,79 +25,30 @@
 #endif
 
 
-#if __has_attribute(__warn_unused_result__)
-# define WARN_UNUSED_RESULT __attribute__((__warn_unused_result__))
-#else
 # define WARN_UNUSED_RESULT
-#endif
 
-#if __has_attribute(__noreturn__)
-# define NORETURN __attribute__((__noreturn__))
-#elif defined(_MSC_VER)
-# define NORETURN __declspec("noreturn")
-#else
-# define NORETURN
-#endif
+# define NORETURN __attribute__((noreturn))
 
-#if __has_attribute(__format__)
-# define ATTR_FORMAT(...) __attribute__((__format__(__VA_ARGS__)))
-#else
 # define ATTR_FORMAT(...)
-#endif
 
-#if __has_attribute(__fallthrough__)
-# define FALLTHROUGH __attribute__((__fallthrough__))
-#else
 # define FALLTHROUGH
-#endif
 
-#if __has_attribute(__noescape__)
-# define NOESCAPE __attribute__((__noescape__))
-#else
 # define NOESCAPE
-#endif
 
-#if __has_attribute(__cf_consumed__)
-# define ATTR_CF_CONSUMED __attribute__((__cf_consumed__))
-#else
 # define ATTR_CF_CONSUMED
-#endif
 
-#if __has_attribute(__cf_returns_retained__)
-# define ATTR_CF_RETURNS_RETAINED __attribute__((__cf_returns_retained__))
-#else
 # define ATTR_CF_RETURNS_RETAINED
-#endif
 
-#if __has_attribute(__cf_returns_not_retained__)
-# define ATTR_CF_RETURNS_NOT_RETAINED __attribute__((__cf_returns_not_retained__))
-#else
 # define ATTR_CF_RETURNS_NOT_RETAINED
-#endif
 
-#if __has_builtin(__builtin_assume)
-# define ASSUME(...) __builtin_assume(__VA_ARGS__)
-#elif defined(_MSC_VER)
-# define ASSUME(...) __assume(__VA_ARGS__)
-#else
 # define ASSUME(...)
-#endif
 
-#if __has_builtin(__builtin_unreachable)
-# define UNREACHABLE __builtin_unreachable()
-#else
-# define UNREACHABLE ASSUME(false)
-#endif
+# define UNREACHABLE __builtin_assume(false)
 
-#if __has_feature(nullability)
-# define ASSUME_NONNULL_BEGIN _Pragma("clang assume_nonnull begin")
-# define ASSUME_NONNULL_END _Pragma("clang assume_nonnull end")
-#else /* nullability */
 # define _Nullable
 # define _Nonnull
 # define ASSUME_NONNULL_BEGIN
 # define ASSUME_NONNULL_END
-#endif /* nullability */
 
 /* Used in a function body to signify that the named parameter is intentionally unused */
 #ifndef UNREFERENCED_PARAMETER
