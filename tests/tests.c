@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include <math.h>
 
+#include <time.h>
 #include "utest/utest.h"
 #include "test_helpers.h"
 #include "value.h"
