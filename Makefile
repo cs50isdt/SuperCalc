@@ -7,9 +7,10 @@ ifndef OFLAGS
 OFLAGS := -O2
 endif #OFLAGS
 
+# TODO(max): Figure out how to get libclang's asan.a on Alpine Linux
 # Use clang's Address Sanitizer to help detect memory errors
-override CFLAGS += -fsanitize=address
-override LDFLAGS += -fsanitize=address
+# override CFLAGS += -fsanitize=address
+# override LDFLAGS += -fsanitize=address
 
 # General build path variables
 BUILD := build
