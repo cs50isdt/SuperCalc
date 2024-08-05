@@ -415,6 +415,7 @@ static Value* fracPow(const Fraction* base, const Fraction* exp) {
 		/* Completely reduced? */
 		bool complete = true;
 		long long base_n = 1, base_d = 1;
+		(void)base_n; (void)base_d;
 		for(i = 0; i < n_count; i++) {
 			if(n_primes[i].count > 0) {
 				complete = false;
